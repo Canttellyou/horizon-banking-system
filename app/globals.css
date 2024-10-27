@@ -43,6 +43,10 @@
   background: #7878a3;
 }
 
+body {
+  width: 100%;
+}
+
 @layer utilities {
   .input-class {
     @apply text-16 placeholder:text-16 rounded-lg border border-gray-300 text-gray-900 placeholder:text-gray-500;
@@ -155,7 +159,7 @@
 
   /* Right sidebar */
   .right-sidebar {
-    @apply no-scrollbar hidden h-screen max-h-screen flex-col border-l border-gray-200 xl:flex w-[355px] xl:overflow-y-scroll !important;
+    @apply no-scrollbar hidden h-screen max-h-screen flex-col border-l border-gray-200 xl:flex w-[25%] xl:overflow-y-scroll !important;
   }
 
   .profile-banner {
@@ -222,7 +226,7 @@
 
   /* Bank Card */
   .bank-card {
-    @apply relative flex h-[190px] w-full max-w-[320px] justify-between rounded-[20px] border border-white bg-bank-gradient shadow-creditCard backdrop-blur-[6px];
+    @apply relative flex h-[160px] w-full max-w-[320px] justify-between rounded-[20px] border border-white bg-bank-gradient shadow-creditCard backdrop-blur-[6px];
   }
 
   .bank-card_content {
@@ -340,7 +344,7 @@
   }
 
   .footer_name {
-    @apply flex size-10 items-center justify-center rounded-full bg-gray-200 max-xl:hidden;
+    @apply flex size-10 items-center justify-center rounded-[50%] bg-gray-200 max-xl:hidden;
   }
 
   .footer_email {
@@ -365,7 +369,7 @@
 
   /* Sidebar */
   .sidebar {
-    @apply sticky left-0 top-0 flex h-screen w-fit flex-col  justify-between border-r border-gray-200 bg-white pt-8 text-white max-md:hidden sm:p-4 xl:p-6 2xl:w-[355px];
+    @apply sticky left-0 top-0 flex h-screen w-fit flex-col  justify-between border-r border-gray-200 bg-white pt-8 text-white max-md:hidden sm:p-4 xl:p-6 2xl:w-[20rem];
   }
 
   .sidebar-logo {
@@ -377,6 +381,6 @@
   }
 
   .sidebar-label {
-    @apply text-16 font-semibold text-black-2 max-xl:hidden;
+    @apply text-14 font-semibold text-black-2 max-xl:hidden;
   }
 }

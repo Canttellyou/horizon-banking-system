@@ -131,6 +131,8 @@ export const logoutAccount = async () => {
     cookies().delete("appwrite-session");
 
     await account.deleteSession("current");
+
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-explicit-any
   } catch (error: any) {
     return null;
   }

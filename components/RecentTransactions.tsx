@@ -9,7 +9,6 @@ const RecentTransactions = ({
   accounts,
   transactions = [],
   appwriteItemId,
-  page = 1,
 }: RecentTransactionsProps) => {
   return (
     <section className="recent-transactions">

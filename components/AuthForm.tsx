@@ -8,15 +8,14 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { Button } from "@/components/ui/button";
-import {
-  Form,
-} from "@/components/ui/form";
+import { Form } from "@/components/ui/form";
 import CustomInput from "./CustomInput";
 import { authFormSchema } from "@/lib/utils";
 import { Loader2 } from "lucide-react";
 import { useRouter } from "next/navigation";
-import {  signIn, signUp } from "@/lib/actions/user.actions";
+import { signIn, signUp } from "@/lib/actions/user.actions";
 import PlaidLink from "./PlaidLink";
+import { toastError } from "@/lib/toast";
 
 const AuthForm = ({ type }: { type: string }) => {
   const router = useRouter();
@@ -57,7 +56,11 @@ const AuthForm = ({ type }: { type: string }) => {
 
         const newUser = await signUp(userData);
 
-        setUser(newUser);
+        if (newUser) {
+          setUser(newUser);
+        } else {
+          toastError("An error occurred! Please try again");
+        }
       }
 
       if (type === "sign-in") {
@@ -66,10 +69,14 @@ const AuthForm = ({ type }: { type: string }) => {
           password: data.password,
         });
 
-        if (response) router.push("/");
+        if (response) {
+          router.push("/");
+        } else {
+          toastError("Invalid email or password");
+        }
       }
     } catch (error) {
-      console.log(error);
+      toastError(error.message);
     } finally {
       setIsLoading(false);
     }

@@ -13,16 +13,12 @@ const Home = async ({ searchParams: { id, page } }: SearchParamProps) => {
     userId: loggedIn.$id,
   });
 
-  console.log("Accounts: ", accounts);
-
   if (!accounts) return;
 
   const accountsData = accounts?.data;
   const appwriteItemId = (id as string) || accountsData[0]?.appwriteItemId;
 
   const account = await getAccount({ appwriteItemId });
-
-  console.log("Single Account: ", account);
 
   return (
     <section className="home">
